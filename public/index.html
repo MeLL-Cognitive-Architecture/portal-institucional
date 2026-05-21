@@ -17,14 +17,17 @@
   <meta property="og:title" content="MeLL Cognitive Architecture" />
   <meta property="og:description" content="Arquitetura de inteligência cognitiva para IA governada em ambientes críticos." />
   <meta property="og:type" content="website" />
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>M</text></svg>">
-
-  <link rel="canonical" href="https://mellcognitivearchitecture.com.br/" />
+  <meta property="og:url" content="https://mellcognitivearchitecture.com.br/" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MeLL Cognitive Architecture | IA Governada" />
   <meta name="twitter:description" content="Projetamos arquiteturas de IA governadas para ambientes corporativos, industriais e regulamentados." />
+
+  <link rel="canonical" href="https://mellcognitivearchitecture.com.br/" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EM%3C/text%3E%3C/svg%3E"
+  />
 
   <script type="application/ld+json">
   {
@@ -56,6 +59,7 @@
       --accent-2: #7dd3fc;
       --accent-3: #2563eb;
       --success: #22c55e;
+      --danger: #ef4444;
       --warning: #f59e0b;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
       --radius-xl: 28px;
@@ -380,6 +384,97 @@
       font-weight: 780;
     }
 
+    .showcase {
+      padding-top: 36px;
+      padding-bottom: 64px;
+      text-align: center;
+    }
+
+    .showcase .section-title {
+      justify-items: center;
+    }
+
+    .showcase .section-title p {
+      max-width: 760px;
+    }
+
+    .showcase-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0 30px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      background: #111;
+      color: #00ff00;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .showcase-link:hover {
+      color: #7cff7c;
+      border-color: #00ff00;
+    }
+
+    .showcase-card-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .gatekeeper-card {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #00ff00;
+      background: #000;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.15);
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .gatekeeper-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #333;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .gatekeeper-blink {
+      animation: gk-blink 1s infinite;
+    }
+
+    .gatekeeper-insight {
+      min-height: 3em;
+      margin: 10px 0;
+    }
+
+    .gatekeeper-meta {
+      padding-top: 12px;
+      margin-top: 10px;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .gatekeeper-value {
+      color: #00ff00;
+    }
+
+    @keyframes gk-blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
     .flow {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -618,6 +713,20 @@
         bottom: 16px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -644,55 +753,104 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow"><span class="pulse"></span> Ambiente institucional online</div>
+          <div class="eyebrow">
+            <span class="pulse" aria-hidden="true"></span>
+            Ambiente institucional online
+          </div>
 
           <h1 id="hero-title">MeLL Cognitive Architecture</h1>
 
           <p>
             Startup de base tecnológica especializada em arquitetura cognitiva aplicada, governança de inteligência documental
-            e sistemas multinúcleo em camadas, orientados a controles, métricas, rastreabilidade, autonomia supervisionada, 
+            e sistemas multinúcleo em camadas, orientados a controles, métricas, rastreabilidade, autonomia supervisionada,
             segurança cognitiva e soberania humana por design.
           </p>
 
           <div class="actions">
             <a class="button primary" href="#solucoes">Conhecer soluções</a>
+            <a class="button secondary" href="#showcase">Ver Gatekeeper</a>
           </div>
         </div>
-        
-  <section id="showcase" class="container" style="margin-top: 80px; margin-bottom: 60px; padding: 0 20px; text-align: center;">
-    
-    <div style="margin-bottom: 30px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color);">Governança em Tempo Real</h2>
-        <p style="max-width: 700px; margin: 0 auto 20px; color: #666; line-height: 1.6;">
-            O <strong>MeLL Gatekeeper</strong> é um sentinela serverless desenvolvido em <strong>Python</strong> e hospedado no <strong>Google Cloud</strong>. 
-            Ele audita cada interação no portal, garantindo integridade e conformidade através de uma arquitetura modular de custo zero.
-        </p>
-        <a href="https://github.com/MeLL-Cognitive-Architecture/mell-gatekeeper" target="_blank" style="color: #00ff00; background: #111; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; font-weight: bold; border: 1px solid #333;">
-            📂 Ver documentação técnica no GitHub
-        </a>
-    </div>
-    <div style="display: flex; justify-content: center;">
-        <div id="gatekeeper-card" style="border: 1px solid #00ff00; background: #000; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 8px; width: 100%; max-width: 500px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.15); text-align: left;">
-            <div style="border-bottom: 1px solid #333; margin-bottom: 12px; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem;">
-                <span>> MELL_GATEKEEPER_SENTINEL_v1.0</span>
-                <span style="animation: gk-blink 1s infinite;">●</span>
+
+        <aside class="status-card" aria-label="Estado operacional institucional">
+          <h2>Estado operacional</h2>
+
+          <div class="status-list">
+            <div class="status-item">
+              <span>Portal institucional</span>
+              <strong>Online</strong>
             </div>
-            <p id="gk-insight" style="margin: 10px 0; min-height: 3em;">> Analisando governança cognitiva...</p>
-            <div style="font-size: 0.75rem; color: #888; border-top: 1px solid #333; padding-top: 12px; margin-top: 10px; text-transform: uppercase;">
-                EVENTOS AUDITADOS: <span id="gk-total" style="color: #00ff00;">0</span><br>
-                SISTEMA: <span style="color: #00ff00;">ONLINE</span><br>
-                INFRAESTRUTURA: <span id="gk-region" style="color: #00ff00;">---</span>
+
+            <div class="status-item">
+              <span>API local</span>
+              <strong id="api-status">Verificando...</strong>
             </div>
+
+            <div class="status-item">
+              <span>Modelo de atuação</span>
+              <strong>Autonomia supervisionada</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Autoridade decisória</span>
+              <strong>Humana soberana</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="showcase" class="showcase" aria-labelledby="showcase-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="showcase-title">Governança em Tempo Real</h2>
+          <p>
+            O <strong>MeLL Gatekeeper</strong> é um sentinela serverless desenvolvido em <strong>Python</strong> e hospedado no
+            <strong>Google Cloud</strong>. Ele audita cada interação no portal, garantindo integridade e conformidade por meio
+            de uma arquitetura modular.
+          </p>
         </div>
-     </section>
-        
+
+        <a
+          class="showcase-link"
+          href="https://github.com/MeLL-Cognitive-Architecture/mell-gatekeeper"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📂 Ver documentação técnica no GitHub
+        </a>
+
+        <div class="showcase-card-wrap">
+          <div class="gatekeeper-card" data-gk-card>
+            <div class="gatekeeper-head">
+              <span>&gt; MELL_GATEKEEPER_SENTINEL_v1.0</span>
+              <span class="gatekeeper-blink" aria-hidden="true">●</span>
+            </div>
+
+            <p class="gatekeeper-insight" data-gk-insight>
+              &gt; Analisando governança cognitiva...
+            </p>
+
+            <div class="gatekeeper-meta">
+              EVENTOS AUDITADOS:
+              <span class="gatekeeper-value" data-gk-total>0</span><br />
+              SISTEMA:
+              <span class="gatekeeper-value">ONLINE</span><br />
+              INFRAESTRUTURA:
+              <span class="gatekeeper-value" data-gk-region>---</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="sobre">
       <div class="container">
         <div class="section-title">
           <h2>Sobre a MeLL Cognitive Architecture</h2>
           <p>
-            A MeLL Cognitive Architecture estrutura frameworks, arquiteturas e sistemas de governança cognitiva federada, 
-            orientados à gestão documental, rastreabilidade, controle de risco, métricas de aderência, segurança cognitiva, 
+            A MeLL Cognitive Architecture estrutura frameworks, arquiteturas e sistemas de governança cognitiva federada,
+            orientados à gestão documental, rastreabilidade, controle de risco, métricas de aderência, segurança cognitiva,
             autonomia supervisionada da IA e preservação da autoridade humana em decisões críticas.
           </p>
         </div>
@@ -737,17 +895,17 @@
           </article>
         </div>
       </div>
-      
     </section>
+
     <section id="principios">
       <div class="container">
         <div class="section-title">
           <h2>Governança Cognitiva Federada</h2>
           <p>
-            Governar processos cognitivos assistidos por IA, com controles proporcionais ao risco, métricas de aderência, 
-            rastreabilidade integral, autonomia supervisionada, segurança cognitiva e soberania humana. 
-            Sua finalidade é assegurar que a IA possa ampliar capacidade analítica e operacional sem converter 
-            cognição automatizada em autoridade decisória, efeito institucional ou mudança estrutural sem confirmação humana explícita.
+            Governar processos cognitivos assistidos por IA, com controles proporcionais ao risco, métricas de aderência,
+            rastreabilidade integral, autonomia supervisionada, segurança cognitiva e soberania humana. Sua finalidade é
+            assegurar que a IA possa ampliar capacidade analítica e operacional sem converter cognição automatizada em
+            autoridade decisória, efeito institucional ou mudança estrutural sem confirmação humana explícita.
           </p>
         </div>
 
@@ -806,7 +964,7 @@
             <h3>Conformidade e transparência</h3>
             <p>A arquitetura deve apoiar aderência a políticas, normas, requisitos regulatórios e boas práticas.</p>
           </article>
-        
+
           <article class="card">
             <h3>Desenvolvimento sustentável</h3>
             <p>Promover decisões sustentáveis, otimizar recursos, reduzir impactos ambientais e preservar a segurança.</p>
@@ -820,7 +978,8 @@
         <div class="section-title">
           <h2>Regra de decisão soberania governada</h2>
           <p>
-           Fluxo operacional, sem confirmação humana explícita, a saída permanece consultiva e não produz efeito institucional governado.
+            Fluxo operacional: sem confirmação humana explícita, a saída permanece consultiva e não produz efeito
+            institucional governado.
           </p>
         </div>
 
@@ -847,7 +1006,6 @@
             <span>➔</span>
             <strong>✅ CONFIRM</strong>
             <p>Humano aprova, rejeita, ajusta, bloqueia, escalona ou autoriza exceção.</p>
-            
           </div>
         </div>
       </div>
@@ -858,9 +1016,9 @@
         <div class="section-title">
           <h2>Governança cognitiva federada</h2>
           <p>
-            Voltado à prevenção, redução, controle e rastreabilidade de riscos organizacionais, técnicos, ambientais, ocupacionais, 
-            regulatórios e institucionais, integrando SGI, ESG, SSMA, Compliance, segurança cognitiva, autonomia supervisionada e 
-            soberania humana explícita sobre decisões críticas.
+            Voltado à prevenção, redução, controle e rastreabilidade de riscos organizacionais, técnicos, ambientais,
+            ocupacionais, regulatórios e institucionais, integrando SGI, ESG, SSMA, Compliance, segurança cognitiva,
+            autonomia supervisionada e soberania humana explícita sobre decisões críticas.
           </p>
         </div>
 
@@ -903,10 +1061,9 @@
         <div class="section-title">
           <h2>Governança Cognitiva Corporativa</h2>
           <p>
-            Iniciativas e soluções estratégicas de governança para Indústria 4.0, Setor Financeiro, ambientes 
-            críticos e decisórios, módulos conceituais voltados à aplicação prática de inteligência cognitiva,
-            a agentes especialistas governados com interceptação cognitiva, selagem e imutabilidade semântica, 
-            soberania operacional.
+            Iniciativas e soluções estratégicas de governança para Indústria 4.0, Setor Financeiro, ambientes críticos
+            e decisórios, módulos conceituais voltados à aplicação prática de inteligência cognitiva, agentes especialistas
+            governados com interceptação cognitiva, selagem, imutabilidade semântica e soberania operacional.
           </p>
         </div>
 
@@ -915,9 +1072,9 @@
             <span class="tag">Arquitetura</span>
             <h3>CIA-Tec</h3>
             <p>
-              Cognitive Intelligence Architecture — Technology, arquitetura federada de governança cognitiva,
-              orientada à autonomia supervisionada, rastreabilidade, hierarquia documental, segurança cognitiva,
-              DataCore, núcleos funcionais e soberania humana.
+              Cognitive Intelligence Architecture — Technology, arquitetura federada de governança cognitiva, orientada
+              à autonomia supervisionada, rastreabilidade, hierarquia documental, segurança cognitiva, DataCore, núcleos
+              funcionais e soberania humana.
             </p>
           </article>
 
@@ -925,9 +1082,8 @@
             <span class="tag">Industrial AI</span>
             <h3>ERSC-Core — CIA-Tec</h3>
             <p>
-              Solução conceitual de IA industrial para governança federada de incidentes, fluxos operacionais,
-              integrações, evidências, recomendações, classificação de riscos e execução supervisionada em
-              ambientes técnicos.
+              Solução conceitual de IA industrial para governança federada de incidentes, fluxos operacionais, integrações,
+              evidências, recomendações, classificação de riscos e execução supervisionada em ambientes técnicos.
             </p>
           </article>
 
@@ -935,9 +1091,9 @@
             <span class="tag">Governança ativa</span>
             <h3>SCGA-Core — CIA-Tec</h3>
             <p>
-              Sovereign Cognitive Governance Architecture, componente de segurança para uma camada estratégica
-              de governança corporativa. Esta arquitetura é desenhada para garantir que a autonomia da Inteligência Artificial
-              em ambientes críticos (como Indústria 4.0 e Setor Financeiro) seja sempre mediada pela soberania humana e ética.
+              Sovereign Cognitive Governance Architecture, componente de segurança para uma camada estratégica de governança
+              corporativa. Esta arquitetura é desenhada para garantir que a autonomia da inteligência artificial em ambientes
+              críticos, como Indústria 4.0 e Setor Financeiro, seja sempre mediada pela soberania humana e ética.
             </p>
           </article>
 
@@ -945,20 +1101,25 @@
             <span class="tag">Manutenção Industrial</span>
             <h3>Chat I.A 🔧 Manutenção Elétrica Industrial</h3>
             <p>
-              Assistente técnico inteligente especializado em Manutenção Elétrica Industrial. Auxilia em
-              diagnósticos teóricos, análise de falhas, confiabilidade, PCM, automação e energia, com segurança,
-              linguagem clara e apoio prático para o dia a dia no chão de fábrica.
+              Assistente técnico inteligente especializado em Manutenção Elétrica Industrial. Auxilia em diagnósticos teóricos,
+              análise de falhas, confiabilidade, PCM, automação e energia, com segurança, linguagem clara e apoio prático
+              para o dia a dia no chão de fábrica.
             </p>
           </article>
 
-          <a class="card click-card" href="https://chatgpt.com/g/g-688bdb690e608191836560c539fbde4e-calculu-energia-simplestm" target="_blank" rel="noopener noreferrer" aria-label="Abrir CalcuLú Energia Simples no ChatGPT">
+          <a
+            class="card click-card"
+            href="https://chatgpt.com/g/g-688bdb690e608191836560c539fbde4e-calculu-energia-simplestm"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir CalcuLú Energia Simples no ChatGPT"
+          >
             <div>
               <span class="tag">Energia</span>
               <h3>CalcuLú 💡 Energia Simples</h3>
               <p>
                 Assistente brasileiro que simplifica sua conta de luz, mostra onde a energia está sendo desperdiçada
-                e estima economia com explicações claras e práticas, ajudando a pagar menos e ter mais controle dos
-                gastos.
+                e estima economia com explicações claras e práticas, ajudando a pagar menos e ter mais controle dos gastos.
               </p>
             </div>
             <p class="icon-row">
@@ -984,8 +1145,8 @@
         <div class="section-title">
           <h2>Presença Digital</h2>
           <p>
-            Relacionamento, divulgação, atualização de conteúdos destinado a proporcionar valor a marca, identidade visual, 
-            responsabilidade social, evolutivo contínuo por meio de documentação técnica, demonstrações, redes e canais oficiais.
+            Relacionamento, divulgação e atualização de conteúdos destinados a proporcionar valor à marca, identidade visual,
+            responsabilidade social e evolutivo contínuo por meio de documentação técnica, demonstrações, redes e canais oficiais.
           </p>
         </div>
 
@@ -1001,12 +1162,11 @@
               <span class="tag">Governança e Segurança</span>
               <h3>Site Institucional</h3>
               <p>
-                Estrutura documental, IA responsável, compliance e auditoria,
-                trilha imutável, contenção cognitiva, gestão de riscos
-                segurança da informação, privacidade e LGPD, conformidade regulatória.
-            </p>
-          </div>
-            
+                Estrutura documental, IA responsável, compliance e auditoria, trilha imutável, contenção cognitiva,
+                gestão de riscos, segurança da informação, privacidade, LGPD e conformidade regulatória.
+              </p>
+            </div>
+
             <p class="icon-row">
               <span class="icon-link" aria-hidden="true">↗</span>
             </p>
@@ -1017,8 +1177,8 @@
               <span class="tag">GitHub</span>
               <h3>Documentação Técnica</h3>
               <p>
-                Organização técnica para documentação pública, exemplos, demonstrações não sensíveis,
-                templates e evolução controlada da presença open source da MeLL Cognitive Architecture.
+                Organização técnica para documentação pública, exemplos, demonstrações não sensíveis, templates e evolução
+                controlada da presença open source da MeLL Cognitive Architecture.
               </p>
             </div>
 
@@ -1050,8 +1210,8 @@
                 Idealizador, Criador, Fundador, Arquiteto, Desenvolvedor, Orquestrador, Visionário.
               </p>
               <p>
-                Manutenção Elétrica Industrial - Automação - Indústria 4.0 -
-                Internet das Coisas (IoT) - Confiabilidade e Segurança Operacional.
+                Manutenção Elétrica Industrial — Automação — Indústria 4.0 — Internet das Coisas (IoT) —
+                Confiabilidade e Segurança Operacional.
               </p>
             </div>
 
@@ -1074,26 +1234,6 @@
       </div>
     </section>
   </main>
-  
-  <section class="container" style="margin-top: 60px; margin-bottom: 40px; display: flex; justify-content: center; padding: 0 20px;">
-    <div id="gatekeeper-card" style="border: 1px solid #00ff00; background: #000; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 8px; width: 100%; max-width: 500px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.15); line-height: 1.5;">
-        <div style="border-bottom: 1px solid #333; margin-bottom: 12px; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem;">
-            <span>> MELL_GATEKEEPER_SENTINEL_v1.0</span>
-            <span style="animation: gk-blink 1s infinite;">●</span>
-        </div>
-        <p id="gk-insight" style="margin: 10px 0; min-height: 3em;">> Analisando governança cognitiva...</p>
-        <div style="font-size: 0.75rem; color: #888; border-top: 1px solid #333; padding-top: 12px; margin-top: 10px; text-transform: uppercase;">
-            EVENTOS AUDITADOS: <span id="gk-total" style="color: #00ff00;">0</span><br>
-            SISTEMA: <span style="color: #00ff00;">ONLINE</span><br>
-            INFRAESTRUTURA: <span id="gk-region" style="color: #00ff00;">---</span>
-        </div>
-    </div>
-  </section>
-
-  <style>
-    @keyframes gk-blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
-    #gatekeeper-card span { transition: all 0.3s ease; }
-  </style>
 
   <footer class="footer">
     <div class="container footer-row">
@@ -1112,42 +1252,82 @@
   </a>
 
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Verificação de Saúde local (Infraestrutura Portal)
-      const statusElement = document.getElementById('api-status');
+    document.addEventListener("DOMContentLoaded", async () => {
+      const statusElement = document.getElementById("api-status");
+
       try {
-        const response = await fetch('/health');
-        if (response.ok && statusElement) {
-          statusElement.textContent = 'Online';
-          statusElement.style.color = 'var(--success)';
+        const response = await fetch("/health", { cache: "no-store" });
+
+        if (statusElement) {
+          if (response.ok) {
+            statusElement.textContent = "Online";
+            statusElement.style.color = "var(--success)";
+          } else {
+            statusElement.textContent = "Instável";
+            statusElement.style.color = "var(--danger)";
+          }
         }
       } catch (error) {
         if (statusElement) {
-          statusElement.textContent = 'Instável';
-          statusElement.style.color = '#ef4444'; 
+          statusElement.textContent = "Indisponível";
+          statusElement.style.color = "var(--danger)";
         }
       }
 
-      // 2. Integração com o MeLL Gatekeeper (Google Cloud Intelligence)
-      const insightEl = document.getElementById('gk-insight');
-      const totalEl = document.getElementById('gk-total');
-      const regionEl = document.getElementById('gk-region');
+      const gatekeeperCards = document.querySelectorAll("[data-gk-card]");
+
+      const updateGatekeeperCards = (payload) => {
+        gatekeeperCards.forEach((card) => {
+          const insightEl = card.querySelector("[data-gk-insight]");
+          const totalEl = card.querySelector("[data-gk-total]");
+          const regionEl = card.querySelector("[data-gk-region]");
+
+          if (insightEl) {
+            insightEl.innerText = "> " + (payload.governance_insight || "Conformidade validada.");
+            insightEl.style.color = "#00ff00";
+          }
+
+          if (totalEl) {
+            totalEl.innerText = payload.total_audited_events || "0";
+          }
+
+          if (regionEl) {
+            regionEl.innerText = payload.region || "GCP_MULTI_REGION";
+          }
+        });
+      };
+
+      const setGatekeeperError = () => {
+        gatekeeperCards.forEach((card) => {
+          const insightEl = card.querySelector("[data-gk-insight]");
+          const regionEl = card.querySelector("[data-gk-region]");
+
+          if (insightEl) {
+            insightEl.innerText = "> Erro de sincronização com o Sentinel. Verificando logs de segurança...";
+            insightEl.style.color = "#ef4444";
+          }
+
+          if (regionEl) {
+            regionEl.innerText = "SINCRONIZAÇÃO PENDENTE";
+          }
+        });
+      };
 
       try {
-        const responseGCP = await fetch('https://us-central1-mell-gatekeeper-prod.cloudfunctions.net/gatekeeper-cia-tec');
-        if (!responseGCP.ok) throw new Error('Falha na resposta da nuvem');
-        
+        const responseGCP = await fetch(
+          "https://us-central1-mell-gatekeeper-prod.cloudfunctions.net/gatekeeper-cia-tec",
+          { cache: "no-store" }
+        );
+
+        if (!responseGCP.ok) {
+          throw new Error("Falha na resposta da nuvem");
+        }
+
         const data = await responseGCP.json();
-        
-        // Atualização dos dados no Card
-        insightEl.innerText = "> " + (data.governance_insight || "Conformidade validada.");
-        totalEl.innerText = data.total_audited_events || "0";
-        regionEl.innerText = data.region || "GCP_MULTI_REGION";
-        
-      } catch (err) {
-        insightEl.innerText = "> Erro de sincronização com o Sentinel. Verificando logs de segurança...";
-        insightEl.style.color = "#ef4444";
-        console.error('Erro de conexão com o Showcase:', err);
+        updateGatekeeperCards(data);
+      } catch (error) {
+        setGatekeeperError();
+        console.error("Erro de conexão com o Showcase:", error);
       }
     });
   </script>
