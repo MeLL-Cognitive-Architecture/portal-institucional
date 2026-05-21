@@ -658,32 +658,34 @@
             <a class="button primary" href="#solucoes">Conhecer soluções</a>
           </div>
         </div>
-
-        <aside class="status-card" aria-label="Status operacional">
-          <h2></h2>
-
-          <div class="status-list">
-            <div class="status-item">
-              <span>Sovereign Cognitive Governance</span>
-              <strong id="api-status" style="color: var(--warning)">Verificando...</strong>
+        
+  <section id="showcase" class="container" style="margin-top: 80px; margin-bottom: 60px; padding: 0 20px; text-align: center;">
+    
+    <div style="margin-bottom: 30px;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color);">Governança em Tempo Real</h2>
+        <p style="max-width: 700px; margin: 0 auto 20px; color: #666; line-height: 1.6;">
+            O <strong>MeLL Gatekeeper</strong> é um sentinela serverless desenvolvido em <strong>Python</strong> e hospedado no <strong>Google Cloud</strong>. 
+            Ele audita cada interação no portal, garantindo integridade e conformidade através de uma arquitetura modular de custo zero.
+        </p>
+        <a href="https://github.com/MeLL-Cognitive-Architecture/mell-gatekeeper" target="_blank" style="color: #00ff00; background: #111; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; font-weight: bold; border: 1px solid #333;">
+            📂 Ver documentação técnica no GitHub
+        </a>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <div id="gatekeeper-card" style="border: 1px solid #00ff00; background: #000; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 8px; width: 100%; max-width: 500px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.15); text-align: left;">
+            <div style="border-bottom: 1px solid #333; margin-bottom: 12px; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span>> MELL_GATEKEEPER_SENTINEL_v1.0</span>
+                <span style="animation: gk-blink 1s infinite;">●</span>
             </div>
-            <div class="status-item">
-              <span>Governança</span>
-              <strong>→ regras, riscos, registros e controles</strong>
+            <p id="gk-insight" style="margin: 10px 0; min-height: 3em;">> Analisando governança cognitiva...</p>
+            <div style="font-size: 0.75rem; color: #888; border-top: 1px solid #333; padding-top: 12px; margin-top: 10px; text-transform: uppercase;">
+                EVENTOS AUDITADOS: <span id="gk-total" style="color: #00ff00;">0</span><br>
+                SISTEMA: <span style="color: #00ff00;">ONLINE</span><br>
+                INFRAESTRUTURA: <span id="gk-region" style="color: #00ff00;">---</span>
             </div>
-            <div class="status-item">
-              <span>Cognitiva</span>
-              <strong>→ inteligência, análise e apoio decisório</strong>
-            </div>
-            <div class="status-item">
-              <span>Soberana</span>
-              <strong>→ preserva autoridade humana explícita</strong>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
+        </div>
+     </section>
+        
     <section id="sobre">
       <div class="container">
         <div class="section-title">
@@ -735,8 +737,8 @@
           </article>
         </div>
       </div>
+      
     </section>
-
     <section id="principios">
       <div class="container">
         <div class="section-title">
