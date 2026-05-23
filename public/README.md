@@ -1,9 +1,16 @@
-# MeLL Cognitive Architecture
+# MeLL Cognitive Architecture — public/
 
-Site institucional com contato, política de privacidade e termos de uso.
+Raiz pública do site institucional.
 
-## Atualização aplicada
+## Versão v1.1 — Alinhamento institucional
 
-- Links legais preservados: `/privacypolicy/` e `/terms/`.
-- Política de Privacidade atualizada com cláusula técnica de segurança de dados, processamento por IA, DLP, GCP, TLS/SSL, AES-256, retenção e exclusão.
-- Estrutura pronta para publicação estática.
+Atualizações principais:
+
+- Hero com destaque primário para **MeLL Cognitive Architecture**.
+- Inclusão da seção **Tipologia governada CIA-Tec™ v4.7**.
+- Separação explícita entre organização, arquitetura, framework, Data Layer, plataforma operacional, módulo especializado e interfaces governadas.
+- Reclassificação pública de **ERSC-Core** como plataforma operacional.
+- Harmonização de **SovereignGuard / SCGA-Core** como módulo especializado de governança ativa.
+- Preservação das rotas legais `/privacypolicy/` e `/terms/`.
+
+Publicação Netlify: `publish = "public"`.
