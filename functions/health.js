@@ -1,47 +1,64 @@
+const SERVICE_NAME = "MeLL Cognitive Architecture";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "3600"
+};
+
+const baseHeaders = {
+  ...corsHeaders,
+  "Content-Type": "application/json; charset=UTF-8",
+  "Cache-Control": "no-store",
+  "X-Content-Type-Options": "nosniff"
+};
+
+function jsonResponse(payload, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(payload, null, 2), {
+    status,
+    headers: {
+      ...baseHeaders,
+      ...extraHeaders
+    }
+  });
+}
+
 export async function onRequest(context) {
   const { request } = context;
+  const method = request.method;
 
-  const corsHeaders = {
-    "access-control-allow-origin": "*",
-    "access-control-allow-methods": "GET, OPTIONS",
-    "access-control-allow-headers": "Content-Type",
-    "access-control-max-age": "3600"
-  };
-
-  if (request.method === "OPTIONS") {
+  if (method === "OPTIONS") {
     return new Response(null, {
       status: 204,
       headers: corsHeaders
     });
   }
 
-  if (request.method !== "GET") {
-    return new Response(
-      JSON.stringify(
-        {
-          status: "rejected",
-          service: "MeLL Cognitive Architecture",
-          message: "Método HTTP não permitido.",
-          allowed_methods: ["GET", "OPTIONS"],
-          timestamp: new Date().toISOString()
-        },
-        null,
-        2
-      ),
+  if (!["GET", "HEAD"].includes(method)) {
+    return jsonResponse(
       {
-        status: 405,
-        headers: {
-          ...corsHeaders,
-          "content-type": "application/json; charset=UTF-8",
-          "cache-control": "no-store"
-        }
+        status: "rejected",
+        service: SERVICE_NAME,
+        component: "Cloudflare Pages Health Check",
+        message: "Método HTTP não permitido.",
+        allowed_methods: ["GET", "HEAD", "OPTIONS"],
+        governance: {
+          decision_authority: "humana-soberana",
+          effect: "sem-efeito-institucional"
+        },
+        timestamp: new Date().toISOString()
+      },
+      405,
+      {
+        "Allow": "GET, HEAD, OPTIONS"
       }
     );
   }
 
   const healthData = {
     status: "ok",
-    service: "MeLL Cognitive Architecture",
+    service: SERVICE_NAME,
     component: "Cloudflare Pages Health Check",
     environment: "cloudflare-pages",
     stage: "institucional-modular",
@@ -50,15 +67,20 @@ export async function onRequest(context) {
       decision_authority: "humana-soberana",
       flow: "EXECUTE_REGISTER_SEAL_CONFIRM"
     },
+    checks: {
+      runtime: "available",
+      response: "json",
+      cache_policy: "no-store"
+    },
     timestamp: new Date().toISOString()
   };
 
-  return new Response(JSON.stringify(healthData, null, 2), {
-    status: 200,
-    headers: {
-      ...corsHeaders,
-      "content-type": "application/json; charset=UTF-8",
-      "cache-control": "no-store"
-    }
-  });
+  if (method === "HEAD") {
+    return new Response(null, {
+      status: 200,
+      headers: baseHeaders
+    });
+  }
+
+  return jsonResponse(healthData, 200);
 }
