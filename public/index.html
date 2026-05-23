@@ -350,19 +350,27 @@
       letter-spacing: -0.064em;
     }
 
-    h1 .hero-name {
-      display: block;
-    }
+    h1 {
+  max-width: 860px;
+  margin: 0;
+  font-size: clamp(2.75rem, 5.2vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
 
-    .hero-subline {
-      display: block;
-      margin-top: 0.55rem;
-      color: var(--accent-2);
-      font-size: clamp(1.15rem, 1.7vw, 1.55rem);
-      line-height: 1.2;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
+h1 .hero-name {
+  display: block;
+}
+
+.hero-subline {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--accent-2);
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
 
     .lead {
       max-width: 760px;
@@ -824,22 +832,27 @@
     </div>
   </header>
 
-  <main id="conteudo">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Ambiente institucional online</p>
-          <h1 id="hero-title"><span class="hero-name">MeLL Cognitive Architecture</span><span class="hero-subline">IA governada desde a concepção</span></h1>
-          <p class="lead">
-            Organização institucional de arquitetura cognitiva aplicada à governança de IA, inteligência documental, rastreabilidade, segurança cognitiva, autonomia supervisionada e soberania humana por design.
-          </p>
+ <main id="conteudo">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div>
+        <h1 id="hero-title">
+          <span class="hero-name">MeLL Cognitive Architecture</span>
+          <span class="hero-subline">IA governada desde a concepção</span>
+        </h1>
 
-          <div class="actions" aria-label="Ações principais">
-            <a class="button primary" href="#solucoes">Conhecer soluções</a>
-            <a class="button secondary" href="#tipologia">Ver tipologia governada</a>
-            <a class="button ghost" href="#contato">Canais oficiais</a>
-          </div>
+        <p class="lead">
+          Organização institucional de arquitetura cognitiva aplicada à governança de IA,
+          inteligência documental, rastreabilidade, segurança cognitiva, autonomia
+          supervisionada e soberania humana por design.
+        </p>
+
+        <div class="actions" aria-label="Ações principais">
+          <a class="button primary" href="#solucoes">Conhecer soluções</a>
+          <a class="button secondary" href="#tipologia">Ver tipologia governada</a>
+          <a class="button ghost" href="#contato">Canais oficiais</a>
         </div>
+      </div>
 
         <aside class="hero-panel" aria-label="Resumo institucional e operacional da arquitetura">
           <img class="hero-logo" src="./mell-brand-round.png" width="512" height="512" alt="Selo da MeLL Cognitive Architecture com cérebro digital, camadas técnicas e elementos de governança" fetchpriority="high" decoding="async" />
