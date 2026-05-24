@@ -3,6 +3,7 @@
 
   var CONTACT_EMAIL = "contato@mellcognitivearchitecture.com.br";
   var SITE_URL = "https://mellcognitivearchitecture.com.br";
+  var DEMO_URL = "https://mell-cognitive-architecture.github.io/demo-repository/";
 
   var quickActions = [
     "Soluções",
@@ -37,6 +38,7 @@
       keywords: ["demo", "demonstração", "demonstracao", "teste", "publica"],
       text:
         "A demonstração pública apresenta um fluxo não sensível com EXECUTE, REGISTER, SEAL e CONFIRM. Ela mostra como uma entrada é analisada, registrada, estabilizada e mantida como consultiva até confirmação humana.",
+      url: DEMO_URL,
     },
     {
       label: "Soluções",
@@ -84,20 +86,22 @@
 
   var styles = document.createElement("style");
   styles.textContent =
-    ".mell-ask-root{position:fixed;right:20px;bottom:20px;z-index:2147483000;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#f8fafc}" +
-    ".mell-ask-launcher{display:inline-flex;align-items:center;gap:10px;min-height:50px;border:1px solid rgba(125,211,252,.36);border-radius:14px;background:#38bdf8;color:#02111f;padding:0 16px;font:inherit;font-weight:900;box-shadow:0 18px 42px rgba(0,0,0,.34);cursor:pointer}" +
-    ".mell-ask-icon{display:grid;width:28px;height:28px;place-items:center;border-radius:9px;background:rgba(2,17,31,.13);font-weight:950}" +
-    ".mell-ask-panel{position:absolute;right:0;bottom:66px;display:none;width:min(392px,calc(100vw - 32px));max-height:min(680px,calc(100vh - 104px));overflow:hidden;border:1px solid rgba(125,211,252,.28);border-radius:18px;background:#07111f;box-shadow:0 28px 80px rgba(0,0,0,.42)}" +
+    ".mell-ask-root{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:2147483000;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#f8fafc}" +
+    ".mell-ask-launcher{display:inline-flex;align-items:center;gap:10px;min-height:46px;border:1px solid rgba(125,211,252,.36);border-radius:13px;background:#38bdf8;color:#02111f;padding:0 14px;font:inherit;font-size:15px;font-weight:900;box-shadow:0 18px 42px rgba(0,0,0,.34);cursor:pointer}" +
+    ".mell-ask-icon{display:grid;width:26px;height:26px;place-items:center;border-radius:9px;background:rgba(2,17,31,.13);font-weight:950}" +
+    ".mell-ask-panel{position:absolute;right:0;bottom:62px;display:none;width:min(380px,calc(100vw - 32px));height:min(620px,calc(100vh - 120px));overflow:hidden;border:1px solid rgba(125,211,252,.28);border-radius:18px;background:#07111f;box-shadow:0 28px 80px rgba(0,0,0,.42)}" +
     ".mell-ask-root.is-open .mell-ask-panel{display:grid;grid-template-rows:auto 1fr auto}" +
     ".mell-ask-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px;border-bottom:1px solid rgba(148,163,184,.2);background:linear-gradient(180deg,rgba(12,23,40,.96),rgba(7,17,31,.96))}" +
     ".mell-ask-title{margin:0;font-size:16px;line-height:1.25}.mell-ask-subtitle{margin:5px 0 0;color:#b9c7d9;font-size:13px;line-height:1.4}" +
     ".mell-ask-close{display:grid;width:34px;height:34px;place-items:center;border:1px solid rgba(148,163,184,.24);border-radius:10px;background:rgba(255,255,255,.045);color:#f8fafc;cursor:pointer;font-size:18px}" +
-    ".mell-ask-log{display:flex;flex-direction:column;gap:10px;overflow:auto;padding:16px;background:#040914}" +
+    ".mell-ask-log{display:flex;flex-direction:column;gap:10px;min-height:0;overflow:auto;padding:16px;background:#040914}" +
     ".mell-ask-message{max-width:91%;white-space:pre-wrap;border-radius:14px;padding:11px 12px;font-size:14px;line-height:1.48}.mell-ask-bot{align-self:flex-start;border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.055);color:#f8fafc}.mell-ask-user{align-self:flex-end;background:#38bdf8;color:#02111f;font-weight:760}" +
+    ".mell-ask-link{align-self:flex-start;display:inline-flex;align-items:center;border:1px solid rgba(125,211,252,.32);border-radius:999px;background:rgba(56,189,248,.1);color:#7dd3fc;padding:9px 12px;text-decoration:none;font-size:13px;font-weight:840}" +
     ".mell-ask-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px;background:#040914}.mell-ask-chip{border:1px solid rgba(125,211,252,.25);border-radius:999px;background:rgba(56,189,248,.08);color:#7dd3fc;padding:8px 10px;font:inherit;font-size:13px;font-weight:760;cursor:pointer}" +
     ".mell-ask-form{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px;border-top:1px solid rgba(148,163,184,.2);background:#07111f}.mell-ask-input{min-width:0;border:1px solid rgba(148,163,184,.35);border-radius:12px;padding:11px 12px;background:#02060d;color:#f8fafc;font:inherit;font-size:14px}.mell-ask-input::placeholder{color:#8da1bc}.mell-ask-send{border:0;border-radius:12px;background:#38bdf8;color:#02111f;padding:0 14px;font:inherit;font-weight:900;cursor:pointer}" +
     ".mell-ask-note{padding:0 16px 14px;color:#8da1bc;background:#040914;font-size:12px;line-height:1.45}" +
-    "@media(max-width:520px){.mell-ask-root{right:12px;bottom:12px}.mell-ask-panel{right:-4px;bottom:62px;width:calc(100vw - 24px)}}";
+    "@media(min-width:1200px){.mell-ask-root{right:24px;bottom:24px}.mell-ask-panel{right:0;bottom:64px;width:388px}}" +
+    "@media(max-width:520px){.mell-ask-root{right:10px;bottom:10px}.mell-ask-launcher{min-height:46px;padding:0 12px}.mell-ask-panel{position:fixed;left:10px;right:10px;bottom:68px;width:auto;height:min(560px,calc(100vh - 88px))}}";
   document.head.appendChild(styles);
 
   var root = createElement("div", "mell-ask-root");
@@ -169,6 +173,15 @@
   function addMessage(text, type) {
     var message = createElement("div", "mell-ask-message mell-ask-" + type, text);
     log.appendChild(message);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function addLinkMessage(url, label) {
+    var link = createElement("a", "mell-ask-link", label);
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    log.appendChild(link);
     log.scrollTop = log.scrollHeight;
   }
 
@@ -274,6 +287,9 @@
     }
 
     addMessage(answer.text, "bot");
+    if (answer.url) {
+      addLinkMessage(answer.url, "Abrir demonstração pública");
+    }
     if (answer.action === "lead") {
       startLead();
     }
