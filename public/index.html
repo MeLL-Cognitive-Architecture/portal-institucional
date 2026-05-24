@@ -380,12 +380,73 @@ h1 .hero-name {
     }
 
     .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 2rem;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
 
+/* DEMONSTRAÇÃO PÚBLICA GOVERNADA */
+.hero-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  padding: clamp(1.25rem, 2.4vw, 1.8rem);
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.11), transparent 34rem),
+    linear-gradient(180deg, rgba(12, 23, 40, 0.74), rgba(5, 12, 23, 0.82));
+}
+
+.demo-copy h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.demo-copy p {
+  max-width: 620px;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+}
+
+.demo-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.demo-step {
+  min-height: 116px;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.demo-step strong {
+  display: block;
+  color: var(--gold-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.demo-step span {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.demo-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
     .button {
       display: inline-flex;
       align-items: center;
@@ -864,7 +925,51 @@ h1 .hero-name {
           </div>
         </aside>
       </div>
-    </section>
+ 
+  <div class="container hero-demo" aria-labelledby="demo-title">
+    <div class="demo-copy">
+      <span class="tag">Demonstração pública</span>
+      <h2 id="demo-title">Fluxo governado em operação simulada.</h2>
+      <p>
+        Exemplo não sensível de como uma entrada é organizada, registrada,
+        estabilizada e mantida como saída consultiva até confirmação humana.
+      </p>
+    </div>
+
+    <div class="demo-flow" aria-label="Fluxo demonstrativo">
+      <div class="demo-step">
+        <strong>01 · EXECUTE</strong>
+        <span>Entrada simulada é analisada e estruturada.</span>
+      </div>
+
+      <div class="demo-step">
+        <strong>02 · REGISTER</strong>
+        <span>Escopo, premissas, riscos e lacunas são registrados.</span>
+      </div>
+
+      <div class="demo-step">
+        <strong>03 · SEAL</strong>
+        <span>O artefato é estabilizado como saída consultiva.</span>
+      </div>
+
+      <div class="demo-step">
+        <strong>04 · CONFIRM</strong>
+        <span>A decisão final permanece humana e explícita.</span>
+      </div>
+    </div>
+
+    <div class="demo-actions">
+      <a
+        class="button secondary"
+        href="https://github.com/MeLL-Cognitive-Architecture/demo-repository"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Abrir repositório de demonstração
+      </a>
+    </div>
+  </div>
+</section>
 
     <section id="sobre" class="section" aria-labelledby="sobre-title">
       <div class="container">
