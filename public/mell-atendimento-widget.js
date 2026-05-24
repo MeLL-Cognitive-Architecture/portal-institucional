@@ -71,6 +71,17 @@
     },
   };
 
+  function createElement(tagName, className, text) {
+    var element = document.createElement(tagName);
+    if (className) {
+      element.className = className;
+    }
+    if (text) {
+      element.textContent = text;
+    }
+    return element;
+  }
+
   var styles = document.createElement("style");
   styles.textContent =
     ".mell-ask-root{position:fixed;right:20px;bottom:20px;z-index:2147483000;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#f8fafc}" +
@@ -89,23 +100,64 @@
     "@media(max-width:520px){.mell-ask-root{right:12px;bottom:12px}.mell-ask-panel{right:-4px;bottom:62px;width:calc(100vw - 24px)}}";
   document.head.appendChild(styles);
 
-  var root = document.createElement("div");
-  root.className = "mell-ask-root";
-  root.innerHTML =
-    '<section class="mell-ask-panel" role="dialog" aria-modal="false" aria-labelledby="mell-ask-title">' +
-    '<header class="mell-ask-header"><div><h2 class="mell-ask-title" id="mell-ask-title">Atendimento MeLL</h2><p class="mell-ask-subtitle">Orientação inicial sobre arquitetura cognitiva governada.</p></div><button class="mell-ask-close" type="button" aria-label="Fechar atendimento">×</button></header>' +
-    '<div class="mell-ask-log" aria-live="polite"></div>' +
-    '<div><div class="mell-ask-chips"></div><p class="mell-ask-note">Não envie dados sensíveis. As respostas são consultivas e dependem de confirmação humana para qualquer efeito institucional.</p><form class="mell-ask-form"><input class="mell-ask-input" type="text" autocomplete="off" placeholder="Digite sua pergunta" aria-label="Mensagem para o atendimento" /><button class="mell-ask-send" type="submit">Enviar</button></form></div>' +
-    "</section>" +
-    '<button class="mell-ask-launcher" type="button" aria-expanded="false"><span class="mell-ask-icon">?</span><span>Atendimento</span></button>';
-  document.body.appendChild(root);
+  var root = createElement("div", "mell-ask-root");
+  var panel = createElement("section", "mell-ask-panel");
+  var header = createElement("header", "mell-ask-header");
+  var headerCopy = createElement("div");
+  var title = createElement("h2", "mell-ask-title", "Atendimento MeLL");
+  var subtitle = createElement(
+    "p",
+    "mell-ask-subtitle",
+    "Orientação inicial sobre arquitetura cognitiva governada."
+  );
+  var closeButton = createElement("button", "mell-ask-close", "×");
+  var log = createElement("div", "mell-ask-log");
+  var footer = createElement("div");
+  var chips = createElement("div", "mell-ask-chips");
+  var note = createElement(
+    "p",
+    "mell-ask-note",
+    "Não envie dados sensíveis. As respostas são consultivas e dependem de confirmação humana para qualquer efeito institucional."
+  );
+  var form = createElement("form", "mell-ask-form");
+  var input = createElement("input", "mell-ask-input");
+  var sendButton = createElement("button", "mell-ask-send", "Enviar");
+  var launcher = createElement("button", "mell-ask-launcher");
+  var launcherIcon = createElement("span", "mell-ask-icon", "?");
+  var launcherText = createElement("span", "", "Atendimento");
 
-  var launcher = root.querySelector(".mell-ask-launcher");
-  var closeButton = root.querySelector(".mell-ask-close");
-  var log = root.querySelector(".mell-ask-log");
-  var chips = root.querySelector(".mell-ask-chips");
-  var form = root.querySelector(".mell-ask-form");
-  var input = root.querySelector(".mell-ask-input");
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-modal", "false");
+  panel.setAttribute("aria-labelledby", "mell-ask-title");
+  title.id = "mell-ask-title";
+  log.setAttribute("aria-live", "polite");
+  closeButton.type = "button";
+  closeButton.setAttribute("aria-label", "Fechar atendimento");
+  input.type = "text";
+  input.autocomplete = "off";
+  input.placeholder = "Digite sua pergunta";
+  input.setAttribute("aria-label", "Mensagem para o atendimento");
+  sendButton.type = "submit";
+  launcher.type = "button";
+  launcher.setAttribute("aria-expanded", "false");
+
+  headerCopy.appendChild(title);
+  headerCopy.appendChild(subtitle);
+  header.appendChild(headerCopy);
+  header.appendChild(closeButton);
+  form.appendChild(input);
+  form.appendChild(sendButton);
+  footer.appendChild(chips);
+  footer.appendChild(note);
+  footer.appendChild(form);
+  panel.appendChild(header);
+  panel.appendChild(log);
+  panel.appendChild(footer);
+  launcher.appendChild(launcherIcon);
+  launcher.appendChild(launcherText);
+  root.appendChild(panel);
+  root.appendChild(launcher);
+  document.body.appendChild(root);
 
   function normalize(value) {
     return String(value || "")
@@ -115,9 +167,7 @@
   }
 
   function addMessage(text, type) {
-    var message = document.createElement("div");
-    message.className = "mell-ask-message mell-ask-" + type;
-    message.textContent = text;
+    var message = createElement("div", "mell-ask-message mell-ask-" + type, text);
     log.appendChild(message);
     log.scrollTop = log.scrollHeight;
   }
@@ -132,12 +182,10 @@
   }
 
   function renderChips() {
-    chips.innerHTML = "";
+    chips.textContent = "";
     quickActions.forEach(function (label) {
-      var chip = document.createElement("button");
+      var chip = createElement("button", "mell-ask-chip", label);
       chip.type = "button";
-      chip.className = "mell-ask-chip";
-      chip.textContent = label;
       chip.addEventListener("click", function () {
         handleUserText(label);
       });
@@ -245,8 +293,7 @@
   });
 
   document.addEventListener("click", function (event) {
-    var openButton = event.target.closest("[data-mell-ask-open]");
-    if (openButton) {
+    if (event.target instanceof Element && event.target.closest("[data-mell-ask-open]")) {
       setOpen(true);
     }
   });
