@@ -88,6 +88,8 @@
   styles.textContent =
     ".mell-ask-root{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:2147483000;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#f8fafc}" +
     ".mell-ask-launcher{display:inline-flex;align-items:center;gap:10px;min-height:46px;border:1px solid rgba(125,211,252,.36);border-radius:13px;background:#38bdf8;color:#02111f;padding:0 14px;font:inherit;font-size:15px;font-weight:900;box-shadow:0 18px 42px rgba(0,0,0,.34);cursor:pointer}" +
+    ".mell-ask-root.has-inline-trigger .mell-ask-launcher{display:none}" +
+    ".mell-ask-inline-trigger{font:inherit;cursor:pointer;white-space:nowrap}" +
     ".mell-ask-icon{display:grid;width:26px;height:26px;place-items:center;border-radius:9px;background:rgba(2,17,31,.13);font-weight:950}" +
     ".mell-ask-panel{position:absolute;right:0;bottom:62px;display:none;width:min(380px,calc(100vw - 32px));height:min(620px,calc(100vh - 120px));overflow:hidden;border:1px solid rgba(125,211,252,.28);border-radius:18px;background:#07111f;box-shadow:0 28px 80px rgba(0,0,0,.42)}" +
     ".mell-ask-root.is-open .mell-ask-panel{display:grid;grid-template-rows:auto 1fr auto}" +
@@ -130,6 +132,7 @@
   var launcherIcon = createElement("span", "mell-ask-icon", "?");
   var launcherText = createElement("span", "", "Ask AI MeLL");
 
+  panel.id = "mell-ask-panel";
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-modal", "false");
   panel.setAttribute("aria-labelledby", "mell-ask-title");
@@ -189,9 +192,28 @@
     state.open = open;
     root.classList.toggle("is-open", open);
     launcher.setAttribute("aria-expanded", open ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mell-ask-open]"), function (trigger) {
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
     if (open) {
       input.focus();
     }
+  }
+
+  function installInlineTrigger() {
+    var actions = document.querySelector(".hero .actions");
+    if (!actions || actions.querySelector("[data-mell-ask-open]")) {
+      return;
+    }
+
+    var trigger = createElement("button", "button secondary mell-ask-inline-trigger", "Ask AI MeLL");
+    trigger.type = "button";
+    trigger.setAttribute("data-mell-ask-open", "true");
+    trigger.setAttribute("aria-controls", "mell-ask-panel");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-haspopup", "dialog");
+    actions.appendChild(trigger);
+    root.classList.add("has-inline-trigger");
   }
 
   function renderChips() {
@@ -314,6 +336,7 @@
     }
   });
 
+  installInlineTrigger();
   renderChips();
   addMessage(
     "Olá. Sou o ASK de atendimento da MeLL. Posso orientar sobre soluções, CIA-Tec, ERSC-Core, SovereignGuard, demonstração pública e contato institucional.",
