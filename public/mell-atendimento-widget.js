@@ -202,17 +202,28 @@
 
   function installInlineTrigger() {
     var actions = document.querySelector(".hero .actions");
-    if (!actions || actions.querySelector("[data-mell-ask-open]")) {
+    if (!actions) {
       return;
     }
 
-    var trigger = createElement("button", "button secondary mell-ask-inline-trigger", "Ask AI MeLL");
+    if (actions.querySelector("[data-mell-ask-open]")) {
+      root.classList.add("has-inline-trigger");
+      return;
+    }
+
+    var trigger = createElement("button", "button ghost mell-ask-inline-trigger", "Ask AI MeLL");
+    var contactLink = actions.querySelector('a[href="#contato"]');
     trigger.type = "button";
     trigger.setAttribute("data-mell-ask-open", "true");
     trigger.setAttribute("aria-controls", "mell-ask-panel");
     trigger.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-haspopup", "dialog");
-    actions.appendChild(trigger);
+
+    if (contactLink) {
+      actions.replaceChild(trigger, contactLink);
+    } else {
+      actions.appendChild(trigger);
+    }
     root.classList.add("has-inline-trigger");
   }
 
@@ -332,6 +343,7 @@
 
   document.addEventListener("click", function (event) {
     if (event.target instanceof Element && event.target.closest("[data-mell-ask-open]")) {
+      event.preventDefault();
       setOpen(true);
     }
   });
