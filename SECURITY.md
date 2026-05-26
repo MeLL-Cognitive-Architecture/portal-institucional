@@ -12,7 +12,7 @@
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability, please report it **privately** by emailing
-**security@example.com**. If this repository has GitHub private vulnerability reporting
+**security@mellcognitivearchitecture.com.br**. If this repository has GitHub private vulnerability reporting
 enabled, you may also use the **Report a vulnerability** feature in the Security tab.
 
 Please include:
