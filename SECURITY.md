@@ -1,5 +1,5 @@
 
-# Política de Segurança (SECURITY.md) — MeLL Cognitive Architecture
+# Política de Segurança — MeLL Cognitive Architecture
 
 Este documento define a política de segurança, os procedimentos de reporte de vulnerabilidades e as diretrizes de conformidade aplicáveis ao repositório do **Portal Institucional** da MeLL Cognitive Architecture.
 
