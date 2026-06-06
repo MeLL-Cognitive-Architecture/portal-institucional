@@ -11,7 +11,7 @@ Esta versão ajusta o site público para coerência com a tipologia CIA-Tec™ s
 - **Framework CIA-Tec™** — modelo estruturante.
 - **DataCore** — Data Layer de evidência, integridade e rastreabilidade.
 - **ERSC-Core** — plataforma operacional.
-- **SCGA-Core** — módulo especializado de governança ativa.
+- **SovereignGuard / SCGA-Core** — módulo especializado de governança ativa.
 - **GPTs, apps e assistentes** — interfaces governadas.
 
 ## Estrutura

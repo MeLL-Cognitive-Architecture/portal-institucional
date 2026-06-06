@@ -16,10 +16,6 @@
     Content-Type = "application/pdf"
     Cache-Control = "public, max-age=3600"
 
-[[edge_functions]]
-  path = "/*"
-  function = "inject-ask-widget"
-
 [[redirects]]
   from = "/privacypolicy"
   to = "/privacypolicy/"
