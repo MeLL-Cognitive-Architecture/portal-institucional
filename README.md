@@ -1,4 +1,4 @@
-# MeLL Cognitive Architecture — Site institucional
+# MeLL Cognitive Architecture — institucional
 
 Estrutura de publicação estática para Netlify.
 
