@@ -1,73 +1,51 @@
-# MeLL Cognitive Architecture
+# MeLL Cognitive Architecture — Site institucional
 
-Arquitetura de Inteligência Cognitiva de nível empresarial projetada para ambientes críticos para a missão e regulamentados, onde a IA deve operar com governança, rastreabilidade e soberania humana por design.
+Estrutura de publicação estática para Netlify.
 
----
+## Versão v1.1 — Alinhamento institucional público
 
-## Sobre a Organização
+Esta versão ajusta o site público para coerência com a tipologia CIA-Tec™ sem expor identificadores de baseline/versionamento interno.
 
-A MeLL Cognitive Architecture LTDA é uma empresa de tecnologia especializada no desenvolvimento de arquiteturas cognitivas, sistemas inteligentes, governança tecnológica e soluções corporativas voltadas a ambientes empresariais, industriais e críticos.
+- **MeLL Cognitive Architecture** — organização institucional.
+- **CIA-Tec™** — arquitetura de governança cognitiva.
+- **Framework CIA-Tec™** — modelo estruturante.
+- **DataCore** — Data Layer de evidência, integridade e rastreabilidade.
+- **ERSC-Core** — plataforma operacional.
+- **SovereignGuard / SCGA-Core** — módulo especializado de governança ativa.
+- **GPTs, apps e assistentes** — interfaces governadas.
 
-A organização combina experiência prática em manutenção, operação, confiabilidade, observabilidade, cloud, automação, IA e governança para construir soluções seguras, rastreáveis e escaláveis.
+## ASK de atendimento
 
+O atendimento inicial do site é carregado pelo arquivo `public/mell-atendimento-widget.js`.
 
-"MeLL Cognitive Architecture | CIA-Tec™ Plataforma de Governança Cognitiva e Cibersegurança para Inteligência Artificial Corporativa. Através do inovador framework proprietário CIA-Tec™ e da tecnologia pioneira SovereignGuard/Gatekeeper, protegemos ecossistemas empresariais contra vazamento de dados confidenciais, garantindo conformidade absoluta (LGPD/GDPR) e governança em tempo real. Nossa arquitetura atua na borda em modelo Zero-Trust, mitigando riscos de alucinação e otimizando faturas computacionais de LLMs com redução drástica no consumo de tokens. Conectamos inovação à segurança máxima. Descubra o poder de uma IA corporativa blindada, resiliente e auditável."
+A injeção do script é feita pela Edge Function `netlify/edge-functions/inject-ask-widget.js`, registrada em `netlify.toml`, sem alterar diretamente o HTML das páginas públicas.
 
----
+O ASK orienta visitantes sobre soluções, CIA-Tec™, ERSC-Core, SovereignGuard / SCGA-Core, demonstração pública, privacidade e encaminhamento institucional por e-mail. O widget usa APIs de DOM seguras, com conteúdo textual inserido por `textContent`.
 
-## 1. Identidade Corporativa
-**MeLL Cognitive Architecture LTDA**
-*   **Missão:** Construir um ecossistema de IA confiável, transparente e preparado para ambientes de alta criticidade.
-*   **Visão:** Ser a base de governança cognitiva para decisões corporativas e industriais reguladas.
-*   **Valores:** Soberania Humana, Transparência Algorítmica, Excelência Técnica e Ética em IA.
+## Estrutura
 
----
+```text
+functions/
+  health.js
+netlify/
+  edge-functions/
+    inject-ask-widget.js
+public/
+  index.html
+  mell-atendimento-widget.js
+  robots.txt
+  sitemap.xml
+  README.md
+  docs/
+  privacypolicy/
+  terms/
+netlify.toml
+```
 
-## 2. A Organização e seus Pilares
-A infraestrutura operacional é sustentada por cinco pilares fundamentais:
-1.  **Confiabilidade:** Estabilidade e resiliência de sistemas.
-2.  **Excelência Operacional:** Processos otimizados e automação inteligente.
-3.  **Otimização de Custos:** Gestão financeira eficiente (FinOps).
-4.  **Otimização de Desempenho:** Baixa latência e alta precisão.
-5.  **Segurança, Privacidade e Conformidade:** Blindagem e alinhamento regulatório (LGPD/DLP/IAM).
+## Deploy
 
----
+O deploy deve publicar a pasta `public/` e preservar os ativos existentes no repositório, como favicons, imagens e `site.webmanifest`.
 
-## 3. CIA-Tec™ (Cognitive Intelligence Architecture – Technology)
-O motor tecnológico e a base de propriedade intelectual da organização.
+## Observação de governança
 
-### 3.1. Ecossistema Interno
-*   **Arquitetura Cognitiva:** Integração de autonomia supervisionada e rastreabilidade.
-*   **Governança Constitucional:** Regras de negócio como código.
-*   **Ontologia e Taxonomia:** Padronização semântica de dados e ativos.
-*   **Biblioteca Documental:** Dossiês e memórias técnicas imutáveis.
-*   **Frameworks Proprietários:** Ativos exclusivos MeLL LTDA.
-
-### 3.2. Plataforma de Governança Corporativa
-Camada operacional complementar ao Responsible AI e AI Risk Management (NIST/ISO 42001).
-*   **Funcionalidades:**
-    *   Formação e aplicação de políticas de governança.
-    *   Observação contínua do comportamento de agentes.
-    *   Supervisão humana obrigatória (Human-in-the-loop).
-    *   Prevenção de vieses e garantia de decisões justas.
-
----
-
-## 4. Portfólio e Linhas de Negócio
-*   **Base de Inovação:** Pesquisa e desenvolvimento de novas fronteiras cognitivas.
-*   **Linha Google:** Integração nativa e otimizada com o ecossistema Google Cloud.
-*   **Portfólio Comercial:** Soluções de IA Responsável, Agentes Cognitivos e Governança de Missão Crítica.
-
----
-
-## 5. Diretriz de Missão Crítica
-O objetivo final é o suporte a **ambientes corporativos, industriais e regulados**, onde a falha não é uma opção e a rastreabilidade da decisão é o requisito primordial.
-
----
-
-## 6. Proposta Central
-Transformar experiência técnica de campo, arquitetura de sistemas e inteligência operacional em plataformas, frameworks e produtos digitais capazes de apoiar ambientes de alta criticidade com segurança.
-
----
-
-**MeLL Cognitive Architecture é uma organização pioneira em Governança Cognitiva e Cibersegurança para Inteligência Artificial Corporativa.**
+Identificadores internos de baseline e versões técnicas da CIA-Tec™ não devem aparecer na comunicação pública do site.
