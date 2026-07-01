@@ -1,5 +1,4 @@
-const WIDGET_SNIPPET =
-  '<script src="/mell-atendimento-widget.js?v=20260525-source-flow-assist" defer></script>';
+const WIDGET_SNIPPET = '<script src="/mell-atendimento-widget.js" defer></script>';
 
 export default async function injectAskWidget(request, context) {
   const response = await context.next();
