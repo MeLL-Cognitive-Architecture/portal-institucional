@@ -350,27 +350,19 @@
       letter-spacing: -0.064em;
     }
 
-    h1 {
-  max-width: 860px;
-  margin: 0;
-  font-size: clamp(2.75rem, 5.2vw, 5.5rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-}
+    h1 .hero-name {
+      display: block;
+    }
 
-h1 .hero-name {
-  display: block;
-}
-
-.hero-subline {
-  display: block;
-  margin-top: 0.55rem;
-  color: var(--accent-2);
-  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
+    .hero-subline {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--accent-2);
+      font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
 
     .lead {
       max-width: 760px;
@@ -380,73 +372,12 @@ h1 .hero-name {
     }
 
     .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 2rem;
-}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
 
-/* DEMONSTRAÇÃO PÚBLICA GOVERNADA */
-.hero-demo {
-  display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: center;
-  margin-top: clamp(2rem, 3.5vw, 3rem);
-  padding: clamp(1.25rem, 2.4vw, 1.8rem);
-  border: 1px solid rgba(125, 211, 252, 0.18);
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.11), transparent 34rem),
-    linear-gradient(180deg, rgba(12, 23, 40, 0.74), rgba(5, 12, 23, 0.82));
-}
-
-.demo-copy h2 {
-  margin: 0;
-  font-size: clamp(1.6rem, 3vw, 2.7rem);
-  line-height: 1.05;
-  letter-spacing: -0.05em;
-}
-
-.demo-copy p {
-  max-width: 620px;
-  margin: 0.85rem 0 0;
-  color: var(--muted);
-}
-
-.demo-flow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.demo-step {
-  min-height: 116px;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.demo-step strong {
-  display: block;
-  color: var(--gold-2);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-}
-
-.demo-step span {
-  display: block;
-  margin-top: 0.55rem;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
-.demo-actions {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: flex-end;
-}
     .button {
       display: inline-flex;
       align-items: center;
@@ -797,52 +728,36 @@ h1 .hero-name {
     }
 
     @media (max-width: 980px) {
-  .hero-grid,
-  .hero-demo,
-  .demo-flow,
-  .grid.two,
-  .grid.three,
-  .grid.four,
-  .flow,
-  .cta-panel {
-    grid-template-columns: 1fr;
-  }
+      .hero-grid,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .flow,
+      .cta-panel { grid-template-columns: 1fr; }
 
-  .demo-actions {
-    justify-content: stretch;
-  }
+      .hero-panel { max-width: 560px; margin-inline: auto; }
+      .hero-logo { width: min(100%, 390px); height: min(390px, calc(100vw - 4rem)); }
 
-  .hero-panel {
-    max-width: 560px;
-    margin-inline: auto;
-  }
+      .nav-toggle { display: grid; }
 
-  .hero-logo {
-    width: min(100%, 390px);
-    height: min(390px, calc(100vw - 4rem));
-  }
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        display: grid;
+        gap: 0.15rem;
+        padding: 0.75rem;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(5, 11, 22, 0.96);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
 
-  .nav-toggle {
-    display: grid;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 76px;
-    left: 20px;
-    right: 20px;
-    display: grid;
-    gap: 0.15rem;
-    padding: 0.75rem;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background: rgba(5, 11, 22, 0.96);
-    box-shadow: var(--shadow);
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition: opacity 160ms ease, transform 160ms ease;
-  }
       .nav-links[data-open="true"] {
         opacity: 1;
         transform: translateY(0);
@@ -909,27 +824,22 @@ h1 .hero-name {
     </div>
   </header>
 
- <main id="conteudo">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container hero-grid">
-      <div>
-        <h1 id="hero-title">
-          <span class="hero-name">MeLL Cognitive Architecture</span>
-          <span class="hero-subline">IA governada desde a concepção</span>
-        </h1>
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Ambiente institucional online</p>
+          <h1 id="hero-title"><span class="hero-name">MeLL Cognitive Architecture</span><span class="hero-subline">IA governada desde a concepção</span></h1>
+          <p class="lead">
+            Organização institucional de arquitetura cognitiva aplicada à governança de IA, inteligência documental, rastreabilidade, segurança cognitiva, autonomia supervisionada e soberania humana por design.
+          </p>
 
-        <p class="lead">
-          Organização institucional de arquitetura cognitiva aplicada à governança de IA,
-          inteligência documental, rastreabilidade, segurança cognitiva, autonomia
-          supervisionada e soberania humana por design.
-        </p>
-
-        <div class="actions" aria-label="Ações principais">
-          <a class="button primary" href="#solucoes">Conhecer soluções</a>
-          <a class="button secondary" href="#tipologia">Ver tipologia governada</a>
-          <a class="button ghost" href="#contato">Canais oficiais</a>
+          <div class="actions" aria-label="Ações principais">
+            <a class="button primary" href="#solucoes">Conhecer soluções</a>
+            <a class="button secondary" href="#tipologia">Ver tipologia governada</a>
+            <a class="button ghost" href="#contato">Canais oficiais</a>
+          </div>
         </div>
-      </div>
 
         <aside class="hero-panel" aria-label="Resumo institucional e operacional da arquitetura">
           <img class="hero-logo" src="./mell-brand-round.png" width="512" height="512" alt="Selo da MeLL Cognitive Architecture com cérebro digital, camadas técnicas e elementos de governança" fetchpriority="high" decoding="async" />
@@ -941,51 +851,7 @@ h1 .hero-name {
           </div>
         </aside>
       </div>
- 
-  <div class="container hero-demo" aria-labelledby="demo-title">
-    <div class="demo-copy">
-      <span class="tag">Demonstração pública</span>
-      <h2 id="demo-title">Fluxo governado em operação simulada.</h2>
-      <p>
-        Exemplo não sensível de como uma entrada é organizada, registrada,
-        estabilizada e mantida como saída consultiva até confirmação humana.
-      </p>
-    </div>
-
-    <div class="demo-flow" aria-label="Fluxo demonstrativo">
-      <div class="demo-step">
-        <strong>01 · EXECUTE</strong>
-        <span>Entrada simulada é analisada e estruturada.</span>
-      </div>
-
-      <div class="demo-step">
-        <strong>02 · REGISTER</strong>
-        <span>Escopo, premissas, riscos e lacunas são registrados.</span>
-      </div>
-
-      <div class="demo-step">
-        <strong>03 · SEAL</strong>
-        <span>O artefato é estabilizado como saída consultiva.</span>
-      </div>
-
-      <div class="demo-step">
-        <strong>04 · CONFIRM</strong>
-        <span>A decisão final permanece humana e explícita.</span>
-      </div>
-    </div>
-
-    <div class="demo-actions">
-      <a
-        class="button secondary"
-        href="https://mell-cognitive-architecture.github.io/demo-repository/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-         Abrir demonstração pública
-      </a>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="sobre" class="section" aria-labelledby="sobre-title">
       <div class="container">
